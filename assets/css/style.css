@@ -1,0 +1,11 @@
+body {
+    color:white;
+    background-color: black;
+}
+.totals{
+    float:left;
+    margin-right:20px;
+}
+.lettersguessed{
+    clear:both;
+}
