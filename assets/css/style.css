@@ -1,12 +1,23 @@
 body {
-    color:white;
-    background-color: black;
+    background-image: url("../images/bootcamp_pic.PNG");
+    background-size: 500px 300px;
 }
 .totals{
     float:left;
     margin-right:20px;
 }
 .lettersguessed{
-    background-color:lightslategray;
+    background-color:white;
+    color:black;
     clear:both;
+}
+.game-background {
+    border:30px solid maroon;
+    margin-top:145px;
+    margin-bottom: 150px;
+    margin-right: 150px;
+    margin-left: 150px;
+    background-color:black;
+    color:white;
+    padding:50px;
 }

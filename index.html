@@ -8,21 +8,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script type="text/javascript" src="assets/javascript/game.js" defer></script>
+    <script src="assets/javascript/game.js" defer></script>
 </head>
 <body>
 
-    <div>
-        <h2 id="game-title"><strong>Welcome to your Word Guess Game !  </strong></h2>
-        <p id="directions"></p>
-        <p class="totals" id="win"></p>
-        <p class="totals" id="loss"></p>
-        <p class="totals" id="guesses-remaining"></p>
-        <p class="lettersguessed" id="letters-guessed"></p>
-        <p id="game-word"></p>
-
+    <div class="container">
+        <div class="row">
+            <p></p>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8 game-background">
+                <h2 id="game-title"><strong>Bootcamp Word Guess Game !  </strong></h2>
+                <p id="directions"></p>
+                <p class="totals" id="win"></p>
+                <p class="totals" id="loss"></p>
+                <p class="totals" id="guesses-remaining"></p>
+                <p class="lettersguessed" id="letters-guessed"></p>
+                <p id="game-word"></p>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+     
     </div>
-
 
 </body>
 </html>

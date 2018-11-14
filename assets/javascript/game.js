@@ -15,6 +15,9 @@ var words = ["bootcamp","javascript","jumbotron","bootstrap","object","function"
 var winCounter = 0;
 var lossCounter = 0;
 var lettersGuessed = [];
+var audio = new Audio('../sounds/tone.mp3');
+
+
 
 
 //Pick a random word out of the words array used for the game
@@ -99,7 +102,6 @@ for (i = 0; i < guessCounterFixed; i++){
         //Find all positions of the letter in the word
         if (pos > -1){
             while (pos > -1) {
-                console.log(pos);
                 gameWordBlanks[pos]=letter;
                 pos = gameWord.indexOf(letter, pos+1);         
             } 
@@ -112,6 +114,7 @@ for (i = 0; i < guessCounterFixed; i++){
         if (gameWordBlanks.indexOf("_ ") === -1){
             winCounter++;
             winText.textContent = "Wins: " + winCounter;
+
             alert("You Won ! " + "Please play again");
 
             //Reset game
