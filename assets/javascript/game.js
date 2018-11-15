@@ -8,16 +8,17 @@ var winText = document.getElementById("win");
 var lossText = document.getElementById("loss");
 var guessesRemainingText = document.getElementById("guesses-remaining");
 var gameWordText = document.getElementById("game-word");
-
+var gameBorder =  document.getElementById("border1");
+var winSound = document.getElementById("sound-win");
+var loseSound = document.getElementById("sound-lose");
 
 // Create Game variables
-var words = ["bootcamp","javascript","jumbotron","bootstrap","object","function","array","float","github","browser","repository","method","gitlab","slack"];
+var words = ["bootcamp","javascript","jumbotron","bootstrap","developer","object","function","array","float","github","browser","repository","method","gitlab","slack"];
 var winCounter = 0;
 var lossCounter = 0;
 var lettersGuessed = [];
-var audio = new Audio('../sounds/tone.mp3');
-
-
+var audio = new Audio('../sounds/win.mp3');
+var audio1 = new Audio('../sounds/lose.mp3')
 
 
 //Pick a random word out of the words array used for the game
@@ -62,8 +63,9 @@ function gameReset() {
 
     lettersGuessed = [];
     lettersGuessedText.textContent = "Guessed Letters: " + lettersGuessed;
-}
 
+
+}
 
 
 //Game Play Starts Here
@@ -76,60 +78,68 @@ for (i = 0; i < guessCounterFixed; i++){
     // This function is run whenever the user presses a key
     document.onkeyup = function(event){
 
-    // Determine which key was pressed
-    var letter = event.key.toLowerCase();
+        gameBorder.style.borderColor = 'darkblue';
 
-    //Has the letter already been guessed
-    if (lettersGuessed.indexOf(letter) > -1){        
-        alert("You already guessed that letter ! Please try again. ")
-    } 
-    else {
+        // Determine which key was pressed
+        var letter = event.key.toLowerCase();
 
-        //Letter has not already been guessed code block
+        //Has the letter already been guessed
+        if (lettersGuessed.indexOf(letter) > -1){        
+            alert("You already guessed that letter ! Please try again. ")
+        } else {
 
-        //Decrement guess counter and refresh to show number of guesses remaining
-        guessCounter--
-        guessesRemainingText.textContent = "Guesses Remaining: " + guessCounter;
+            //Letter has not already been guessed code block
 
-        //Add letter to letters guessed and update display
-        lettersGuessed.push(letter);
-        lettersGuessedText.textContent = "Guessed Letters: " + lettersGuessed;
+            //Decrement guess counter and refresh to show number of guesses remaining
+            guessCounter--
+            guessesRemainingText.textContent = "Guesses Remaining: " + guessCounter;
+
+            //Add letter to letters guessed and update display
+            lettersGuessed.push(letter);
+            lettersGuessedText.textContent = "Guessed Letters: " + lettersGuessed;
 
 
-        //Is letter in the game word, return the index position
-        var pos = gameWord.indexOf(letter);
+            //Is letter in the game word, return the index position
+            var pos = gameWord.indexOf(letter);
 
-        //Find all positions of the letter in the word
-        if (pos > -1){
-            while (pos > -1) {
-                gameWordBlanks[pos]=letter;
-                pos = gameWord.indexOf(letter, pos+1);         
-            } 
-         
-            gameWordText.textContent = "Game Word:  " + gameWordBlanks;
-            gameWordText.textContent = gameWordText.textContent.replace(/,/g , ''); 
-        }
-
-        //If no blanks remain, user has won by guessing all of the letters
-        if (gameWordBlanks.indexOf("_ ") === -1){
-            winCounter++;
-            winText.textContent = "Wins: " + winCounter;
-
-            alert("You Won ! " + "Please play again");
-
-            //Reset game
-            gameReset();          
-        }
-
-        //Have all of the allowed guesses been used
-        if (guessCounter === 0) {
-            lossCounter++;
-            lossText.textContent = "Losses: " + lossCounter;
-            alert("You Loss ! " + "Please play again");
+            //Find all positions of the letter in the word
+            if (pos > -1){
+                while (pos > -1) {
+                    gameWordBlanks[pos]=letter;
+                    pos = gameWord.indexOf(letter, pos+1);         
+                } 
             
-            //Reset game
-            gameReset();
-        }  
+                gameWordText.textContent = "Game Word:  " + gameWordBlanks;
+                gameWordText.textContent = gameWordText.textContent.replace(/,/g , ''); 
+            }
+
+            //If no blanks remain, user has won by guessing all of the letters
+            if (gameWordBlanks.indexOf("_ ") === -1){
+                gameBorder.style.borderColor = 'green';
+                winCounter++;
+                winText.textContent = "Wins: " + winCounter;
+                winSound.pause();
+                winSound.currentTime = 0;
+                winSound.play();
+                alert("You Won ! " + "Please play again");
+
+                //Reset game
+                gameReset();          
+            } 
+
+            //Have all of the allowed guesses been used
+            if (guessCounter === 0) {
+                gameBorder.style.borderColor = 'red';
+                lossCounter++;
+                lossText.textContent = "Losses: " + lossCounter;
+                loseSound.pause();
+                loseSound.currentTime = 0;
+                loseSound.play();
+                alert("You Loss ! " + "Please play again");
+            
+                //Reset game
+                gameReset();
+            }  
 
         //End of proccessing a good letter guess
         }

@@ -12,11 +12,11 @@ body {
     clear:both;
 }
 .game-background {
-    border:30px solid maroon;
-    margin-top:145px;
+    border:30px solid darkblue;
+    margin-top:143px;
     margin-bottom: 150px;
     margin-right: 150px;
-    margin-left: 150px;
+    margin-left: 155px;
     background-color:black;
     color:white;
     padding:50px;
