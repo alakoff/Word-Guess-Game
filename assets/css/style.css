@@ -5,11 +5,13 @@ body {
 .totals{
     float:left;
     margin-right:20px;
+    font-size: 20px;
 }
 .lettersguessed{
     background-color:white;
     color:black;
     clear:both;
+    font-size:20px;
 }
 .game-background {
     border:30px solid darkblue;
@@ -20,4 +22,7 @@ body {
     background-color:black;
     color:white;
     padding:50px;
+}
+#game-word {
+    font-size: 20px;
 }
