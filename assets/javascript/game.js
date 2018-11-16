@@ -15,7 +15,7 @@ var gameMessage = document.getElementById("message");
 
 
 // Create Game variables
-var words = ["bootcamp","javascript","jumbotron","callback","bootstrap","developer","object","function","array","float","github","browser","repository","method","gitlab","slack"];
+var words = ["bootcamp","javascript","pseudocode","jumbotron","callback","element","bootstrap","developer","object","function","array","float","github","browser","repository","method","gitlab","slack"];
 var winCounter = 0;
 var lossCounter = 0;
 var lettersGuessed = [];
