@@ -142,7 +142,7 @@ for (i = 0; i < guessCounterFixed; i++){
                     loseSound.pause();
                     loseSound.currentTime = 0;
                     loseSound.play();
-                    gameMessage.textContent = 'You Loss !  Better luck next time. Press another letter to start a new game.';
+                    gameMessage.textContent = 'You Lost !  Better luck next time. Press another letter to start a new game.';
                 
                     //Reset game
                     gameReset();
